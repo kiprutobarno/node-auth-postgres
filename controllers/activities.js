@@ -49,9 +49,15 @@ const Activity = {
     const findAllQuery = `SELECT * FROM activities`;
     try {
       let { rows } = await Helpers.query(findAllQuery);
-      return res
-        .status(200)
-        .send({ statusCode: 200, message: "success", activities: rows });
+      if (rows.length === 0) {
+        return res
+          .status(404)
+          .send({ statusCode: 404, message: "no activity added!" });
+      } else {
+        return res
+          .status(200)
+          .send({ statusCode: 200, message: "success", activities: rows });
+      }
     } catch (error) {}
   },
   /**
