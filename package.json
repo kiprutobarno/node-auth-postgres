@@ -9,6 +9,10 @@
     "nodemon": "nodemon --watch models --watch controllers --watch middleware app.js",
     "postinstall": "node manageDB createActivitiesTable && node manageDB createActivitiesTable"
   },
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.13.1"
+  },
   "keywords": [
     "node",
     "express",
