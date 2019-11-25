@@ -83,7 +83,6 @@ const User = {
           message: "user logged in successfully!",
           token: token
         });
-        console.log(req.cookies);
       }
     } catch (er) {
       res.status(400).send({ message: "error", er: er });

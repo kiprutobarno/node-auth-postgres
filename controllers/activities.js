@@ -90,7 +90,6 @@ const Activity = {
   async updateActivity(req, res) {
     const id = req.params.id;
     const dateModified = moment().format();
-    console.log(dateModified);
     let { activityName } = req.body;
     const findOneQuery = `SELECT * FROM activities WHERE id::text='${id}'`;
     const updateQuery = `UPDATE activities SET activityName='${activityName}', dateModified='${dateModified}' WHERE id::text='${id}'`;
@@ -119,7 +118,6 @@ const Activity = {
 
   async deleteActivity(req, res) {
     const id = req.params.id;
-    console.log(id);
     const deleteQuery = `DELETE FROM activities WHERE id::text='${id}'`;
 
     try {

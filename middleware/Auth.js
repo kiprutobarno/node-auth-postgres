@@ -18,7 +18,6 @@ const Auth = {
     } else {
       const token = req.headers["authorization"].replace("Bearer ", "");
       try {
-        console.log(req.headers);
         const decoded = await jwt.verify(token, process.env.SECRET_KEY);
         const searchQuery = `SELECT * FROM users WHERE id::text='${decoded.userId}'`;
         const { rows } = await Helpers.query(searchQuery);
